@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "CM4",
+            "includePath": [
+                "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/arm-none-eabi/include/**",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/"
+            ],
+            "compilerPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe",
+            "defines": [
+                "STM32F411xE",
+                "__GNUC__"
+            ]
+        }
+    ],
+    "version": 4
+}
