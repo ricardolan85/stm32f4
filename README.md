@@ -1,5 +1,5 @@
-# stm32fc
-Open Source Flight Controller Firmware for STM32
+# stm32f4
+STM32F4 - Baremetal
 
 # Startup
 
