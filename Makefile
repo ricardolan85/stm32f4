@@ -1,9 +1,9 @@
 PROJECT	= stm32f4
 DEVICE	= STM32F411xE
 
-CSRCS	= ivt.c boot.c main.c 
-OBJ		= ivt.o boot.o main.o
-LDS		= stm32f4.ld
+SRCS	= ivt.c boot.c main.c 
+OBJS	= ivt.o boot.o main.o
+LDS		= linker.lds
 
 PREFIX	= arm-none-eabi
 CC		= $(PREFIX)-gcc
@@ -17,15 +17,13 @@ CFLAGS 	+= -D$(DEVICE)
 
 LDFLAGS	= -T$(LDS) --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,-Map=$@.map
 
-OBJS = $(SOURCES:.c=.o)
 
 all: $(PROJECT).elf
 
-# compile
-$(PROJECT).elf: $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
+$(PROJECT).elf: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
-%.o: %.c $(DEPS)
+%.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
 bin: $(PROJECT).elf
